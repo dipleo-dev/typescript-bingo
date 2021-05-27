@@ -14,7 +14,7 @@ const GamePage: React.FC<unknown> = () => {
       body: JSON.stringify({ username }),
     };
     fetch("http://localhost:3000/start", requestOptions)
-      .then((response) => response.json())
+      .then((response) => response && response.json())
       .then((data) => setUsernameSubmitted(true));
   };
 

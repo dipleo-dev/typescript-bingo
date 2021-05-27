@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface Props {
   size: number;
   userName: string;
 }
+
 const GameBoard: React.FC<Props> = ({ size, userName }: Props) => {
+  const [seq, setSeq] = useState([]);
   const range = (start: number, end: number) => {
-    return Array.apply(0, Array(end - 1)).map(
-      (element, index) => index + start
-    );
+    return Array.apply(0, Array(end)).map((element, index) => index + start);
   };
+  console.log(size);
   const shuffle = (array: any[]): any[] => {
     var currentIndex = array.length,
       temporaryValue,
@@ -31,17 +32,25 @@ const GameBoard: React.FC<Props> = ({ size, userName }: Props) => {
   };
   const numbers: number[] = shuffle(range(1, size * size));
   const r = range(0, size);
-  return (<div>
-      {
-r.map((i) => (
-<>
-{
-r.map((j) => (
-))
-}
-</>
-))
-}
-  </div>);
+  console.log(r, numbers);
+  return (
+    <div className="container">
+      {r.map((i) => (
+        <div className="row">
+          {r.map((j) => (
+            <div className="col">
+              <div
+                style={{
+                  height: "150px",
+                }}
+              >
+                {numbers[i * size + j]}
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
 };
 export default GameBoard;
