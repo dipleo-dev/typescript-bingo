@@ -4,7 +4,9 @@ import GameBoard from "../components/game-board/game-board";
 
 const GamePage: React.FC<unknown> = () => {
   const params: any = useParams();
-  const size = params.size || 3;
+  const size: number = params?.size || 3;
+  console.log(" ola", params);
+  console.log("size1", size);
   const [username, setUsername] = useState("");
   const [usernameSubmitted, setUsernameSubmitted] = useState(false);
   const startGame = () => {

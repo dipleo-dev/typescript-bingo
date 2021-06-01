@@ -10,7 +10,7 @@ const App: React.FC = () => {
       <Router>
         <div>
           <Switch>
-            <Route path="/:size?" children={<GamePage />} />
+            <Route path="/:size?" exact children={<GamePage />} />
           </Switch>
         </div>
       </Router>

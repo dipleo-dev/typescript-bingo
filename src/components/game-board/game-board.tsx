@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface Props {
   size: number;
@@ -6,11 +6,11 @@ interface Props {
 }
 
 const GameBoard: React.FC<Props> = ({ size, userName }: Props) => {
-  const [seq, setSeq] = useState([]);
+  console.log("size2", size);
   const range = (start: number, end: number) => {
     return Array.apply(0, Array(end)).map((element, index) => index + start);
   };
-  console.log(size);
+
   const shuffle = (array: any[]): any[] => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -19,9 +19,11 @@ const GameBoard: React.FC<Props> = ({ size, userName }: Props) => {
 
     return array;
   };
+  console.log("size3", size);
+  const r = range(0, size * 1);
   const numbers: number[] = shuffle(range(1, size * size));
-  const r = range(0, size);
-  console.log(r, numbers);
+
+  console.log("size4", r, numbers);
   return (
     <div className="container">
       {r.map((i) => (
